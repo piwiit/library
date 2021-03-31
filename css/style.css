@@ -1,10 +1,34 @@
+:root {
+  --backgroundCard: #f2cc8f;
+  --background: #ededed;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  background-color: var(--background);
+  text-align: center;
+}
+
+.title {
+  font-family: 'Fraunces', serif;
+}
 .cardContent {
-	display: flex;
-	flex-flow: row wrap;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
 }
 
 .card {
-	margin: 0.5rem;
-	padding: 1rem;
-	background: #fec;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: var(--backgroundCard);
+}
+
+.card > ul {
+  list-style: none;
 }
