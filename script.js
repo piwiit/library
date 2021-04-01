@@ -14,10 +14,11 @@ const showBooks = () => {
   document.querySelector('.cardContent').innerHTML = myLibrary.reduce(
     // eslint-disable-next-line no-return-assign
     (content, book) =>
-      (content += `<div class="card" style="width: 18rem;">
+      (content += `<div class="card" >
         <h3 class="title">${book.title}</h3>
+        <div class="separator"></div>
         <ul >
-          <li >${book.pages}</li>
+          <li >${book.pages} pages</li>
           <li >${book.status}</li>
           <li >${book.author}</li>
         </ul>
