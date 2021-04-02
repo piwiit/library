@@ -17,23 +17,28 @@
   </head>
   <body>
     <header>
-      <h1 class="title">My book library</h1>
+      <h1 class="title">Library</h1>
       <div class="info">
-        <div class="descritption">
+        <div class="descritption border b5">
           <p>
             This is a simple library app where you can add and delete books, change book status, see
             basic information and library statistics.
           </p>
         </div>
-
-        <button class="exemple">exemple library</button>
+        <div class="stat border b5">
+          <p><span class="bold">Read books :</span><span class="read-books"></span></p>
+          <p><span class="bold">Unread books :</span><span class="unread-books"></span></p>
+          <p><span class="bold">total-books :</span><span class="total-books"></span></p>
+          <div class="button">
+            <button class="exemple">exemple library</button>
+            <button class="clearData">Clear data</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
-      <div class="cardContent">
-        <div class="card"><i class="fas fa-plus fa-10x fa-fw"></i></div>
-      </div>
+      <div class="cardContent"></div>
     </main>
 
     <footer>
