@@ -29,7 +29,10 @@ const showBooks = () => {
         <ul >
           <li >${book.pages} pages</li>
           <li >${book.author}</li>
-          <li >${book.status === true ? '<i class="fas fa-check"></i> Already Read' : '<i class="far fa-times-circle"></i> Not read yet'}</li>
+          <li >${
+      book.status === true
+        ? '<i class="fas fa-check"></i> Already Read'
+        : '<i class="far fa-times-circle"></i> Not read yet'}<i class="fas fa-undo"></i></li>
         </ul>
     </div>`),
     '',
@@ -77,10 +80,15 @@ window.onclick = (e) => {
 };
 
 pushNewBook.onclick = () => {
-  const title = bookTitle.textContent;
-  const author = bookAuthor.textContent;
-  const pages = bookPages.textContent;
+  const title = bookTitle.value;
+  const author = bookAuthor.value;
+  const pages = bookPages.value;
   const status = checkbox.checked;
-  console.log(title, author, pages, status);
   addBookToLibrary(title, author, pages, status);
+  modal.style.display = 'none';
+  cardsContent.style.filter = 'blur(0px)';
+};
+
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = 'none';
 };
