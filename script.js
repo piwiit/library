@@ -34,7 +34,7 @@ const showBooks = () => {
       book.status === true
         ? '<i class="fas fa-check"></i> Already Read'
         : '<i class="far fa-times-circle" ></i> Not read yet'
-      }<i class="fas fa-undo switch-button" data-index-number = ${(n += 1)}></i></li>
+      }<button><i class="fas fa-undo switch-button" data-index-number = ${(n += 1)}></i></button></li>
         </ul>
     </div>`),
     '',
