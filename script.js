@@ -21,9 +21,10 @@ class Book {
 }
 
 const showBooks = () => {
+  let n = 0;
   cardsContent.innerHTML = myLibrary.reduce(
     // eslint-disable-next-line no-return-assign
-    (content, book) => (content += `<div class="card" >
+    (content, book) => (content += `<div class="card >
         <h3 class="title">${book.title}</h3>
         <div class="separator"></div>
         <ul >
@@ -32,7 +33,8 @@ const showBooks = () => {
           <li >${
       book.status === true
         ? '<i class="fas fa-check"></i> Already Read'
-        : '<i class="far fa-times-circle"></i> Not read yet'}<i class="fas fa-undo"></i></li>
+        : '<i class="far fa-times-circle" ></i> Not read yet'
+      }<i class="fas fa-undo switch-button" data-index-number = ${(n += 1)}></i></li>
         </ul>
     </div>`),
     '',
@@ -92,3 +94,10 @@ pushNewBook.onclick = () => {
 window.onclick = (e) => {
   if (e.target === modal) modal.style.display = 'none';
 };
+
+const switchButton = (e) => {
+  const currentBook = myLibrary[e.target.dataset.indexNumber];
+  currentBook.status = !currentBook.status;
+};
+
+window.addEventListener('click', switchButton);
