@@ -100,6 +100,7 @@ const switchstatue = (e) => {
   const switchButton = e.target.parentElement.childNodes[0];
 
   currentBook.status = !currentBook.status;
+  switchButton.innerHTML = '';
   switchButton.innerHTML = `${
     currentBook.status === true
       ? '<i class="fas fa-check"></i> Already Read'
