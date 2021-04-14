@@ -24,7 +24,7 @@ const showBooks = () => {
   let n = 0;
   cardsContent.innerHTML = myLibrary.reduce(
     // eslint-disable-next-line no-return-assign
-    (content, book) => (content += `<div class="card >
+    (content, book) => (content += `<div class="card">
         <h3 class="title">${book.title}</h3>
         <div class="separator"></div>
         <ul >
@@ -32,9 +32,9 @@ const showBooks = () => {
           <li >${book.author}</li>
           <li >${
       book.status === true
-        ? '<i class="fas fa-check"></i> Already Read'
-        : '<i class="far fa-times-circle" ></i> Not read yet'
-      }<button><i class="fas fa-undo switch-button" data-index-number = ${(n += 1)}></i></button></li>
+        ? '<i class="fas fa-check"> Already Read</i>'
+        : '<i class="far fa-times-circle" > Not read yet</i>'
+      }<i class="fas fa-undo switch-button" data-index-number = ${(n += 1)}></i></li>
         </ul>
     </div>`),
     '',
@@ -95,9 +95,16 @@ window.onclick = (e) => {
   if (e.target === modal) modal.style.display = 'none';
 };
 
-const switchButton = (e) => {
+const switchstatue = (e) => {
   const currentBook = myLibrary[e.target.dataset.indexNumber];
+  const switchButton = e.target.parentElement.childNodes[0];
+
   currentBook.status = !currentBook.status;
+  switchButton.innerHTML = `${
+    currentBook.status === true
+      ? '<i class="fas fa-check"></i> Already Read'
+      : '<i class="far fa-times-circle" ></i> Not read yet'
+  }`;
 };
 
-window.addEventListener('click', switchButton);
+window.addEventListener('click', switchstatue);
