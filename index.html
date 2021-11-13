@@ -1,94 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400&family=Poppins:wght@200;300;400&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="icon" type="image/png" href="./images/favicon.png" />
-		<script
-			src="https://kit.fontawesome.com/25d75193a7.js"
-			crossorigin="anonymous"
-		></script>
-		<!-- <link rel="stylesheet" href="css/modern-normalize.min.css" /> -->
-		<link rel="stylesheet" href="css/style.css" />
-		<title>Library</title>
-	</head>
-	<body>
-		<header>
-			<h1 class="title">My book library</h1>
-			<div class="info">
-				<div class="descritption">
-					<p>
-						This is a simple library app where you can add and delete books,
-						change book status, see basic information and library statistics.
-					</p>
-				</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400&family=Poppins:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./images/favicon.png" />
+    <script src="https://kit.fontawesome.com/25d75193a7.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="css/modern-normalize.min.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Library</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">My book library</h1>
+      <div class="info">
+        <div class="descritption">
+          <p>
+            This is a simple library app where you can add and delete books, change book status, see
+            basic information and library statistics.
+          </p>
+        </div>
 
-				<button class="big-button" id="exemple">exemple library</button>
-				<button class="big-button" id="add-book">add book</button>
-			</div>
-		</header>
+        <button class="big-button" id="exemple">exemple library</button>
+        <button class="big-button" id="add-book">add book</button>
+      </div>
+    </header>
 
-		<main>
-			<div class="cardContent"> </div>
-		</main>
+    <main>
+      <div class="cardContent"></div>
+    </main>
 
-		<footer>
-			<div class="footer">
-				<a
-					class="text-dark"
-					href="https://www.linkedin.com/in/jonathan-bouillaux-810b831a1/"
-				>
-					© 2020 Copyright : BouillauxJonathan</a
-				>
-			</div>
-		</footer>
+    <footer>
+      <div class="footer">
+        <a class="text-dark" href="https://www.linkedin.com/in/jonathan-bouillaux-810b831a1/">
+          © 2020 Copyright : BouillauxJonathan</a
+        >
+      </div>
+    </footer>
 
-		<!-- The Modal -->
-		<div id="myModal" class="modal">
-			<!-- Modal content -->
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<div class="form-example">
-					<h2 class="title">Add book</h2>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="form-example">
+          <h2 class="title">Add book</h2>
 
-					<input
-						type="text"
-						name="title"
-						id="title"
-						placeholder="Enter the title"
-						required
-					/>
+          <input type="text" name="title" id="title" placeholder="Enter the title" required />
 
-					<input
-						type="text"
-						name="author"
-						id="author"
-						placeholder="Enter author's name"
-						required
-					/>
+          <input type="text" name="author" id="author" placeholder="Enter author's name" required />
 
-					<input
-						type="number"
-						name="pages"
-						id="pages"
-						placeholder="Number of pages"
-						required
-					/>
+          <input type="number" name="pages" id="pages" placeholder="Number of pages" required />
 
-					<label class="switch">
-						<input type="checkbox" id="myCheck" />
-						<span class="slider round"></span>
-					</label>
-					<button class="button" id="push-new-book">Add book</button>
-				</div>
-			</div>
-		</div>
-		<script src="./script.js"></script>
-	</body>
+          <label class="switch">
+            <input type="checkbox" id="myCheck" />
+            <span class="slider round"></span>
+          </label>
+          <button class="button" id="push-new-book">Add book</button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>
