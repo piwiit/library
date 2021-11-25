@@ -24,20 +24,23 @@ const showBooks = () => {
   let n = 0;
   cardsContent.innerHTML = myLibrary.reduce(
     // eslint-disable-next-line no-return-assign
-    (content, book) => (content += `<div class="card">
+    (content, book) =>
+      (content += `<div class="card">
         <h3 class="title">${book.title}</h3>
+        <i class="far fa-trash-alt trash"></i>
         <div class="separator"></div>
         <ul >
           <li >${book.pages} pages</li>
           <li >${book.author}</li>
           <li >${
-      book.status === true
-        ? '<i class="fas fa-check"> Already Read</i>'
-        : '<i class="far fa-times-circle" > Not read yet</i>'
-      }<i class="fas fa-undo switch-button" data-index-number = ${(n += 1)}></i></li>
+            book.status === true
+              ? '<i class="fas fa-check"> Already Read</i>'
+              : '<i class="far fa-times-circle" > Not read yet</i>'
+          }<i class="fas fa-undo switch-button"></i>
+          </li>
         </ul>
     </div>`),
-    '',
+    ''
   );
 };
 
@@ -54,12 +57,7 @@ exempleButton.onclick = () => {
   addBookToLibrary('Blood of Elves', 'Andrzej Sapkowski', '320', true);
   addBookToLibrary('Time of Contempt', 'Andrzej Sapkowski', '331', true);
   addBookToLibrary('Baptism of Fire', 'Andrzej Sapkowski', '343', true);
-  addBookToLibrary(
-    'The Tower of the Swallow',
-    'Andrzej Sapkowski',
-    '436',
-    false,
-  );
+  addBookToLibrary('The Tower of the Swallow', 'Andrzej Sapkowski', '436', false);
   addBookToLibrary('The Lady of the Lake', 'Andrzej Sapkowski', '531', false);
   addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '366', true);
   addBookToLibrary('The Alchemist', 'Paulo Coelho', '182', false);
@@ -81,6 +79,18 @@ window.onclick = (e) => {
   if (e.target === modal) modal.style.display = 'none';
 };
 
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = 'none';
+};
+
+window.onclick = (e) => {
+  const trash = document.querySelector('.trash');
+  if (e.target === trash) {
+    console.log(e.target.parentElement);
+    e.target.parentElement.remove();
+  }
+};
+
 pushNewBook.onclick = () => {
   const title = bookTitle.value;
   const author = bookAuthor.value;
@@ -91,21 +101,20 @@ pushNewBook.onclick = () => {
   cardsContent.style.filter = 'blur(0px)';
 };
 
-window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = 'none';
-};
+// card.addEventListener('clic', (e) => {
+//   card.remove();
+// });
+// const switchstatue = (e) => {
+//   const currentBook = myLibrary[e.target.dataset.indexNumber];
+//   const switchButton = e.target.parentElement.childNodes[0];
 
-const switchstatue = (e) => {
-  const currentBook = myLibrary[e.target.dataset.indexNumber];
-  const switchButton = e.target.parentElement.childNodes[0];
+//   currentBook.status = !currentBook.status;
+//   switchButton.innerHTML = '';
+//   switchButton.innerHTML = `${
+//     currentBook.status === true
+//       ? '<i class="fas fa-check"></i> Already Read'
+//       : '<i class="far fa-times-circle" ></i> Not read yet'
+//   }`;
+// };
 
-  currentBook.status = !currentBook.status;
-  switchButton.innerHTML = '';
-  switchButton.innerHTML = `${
-    currentBook.status === true
-      ? '<i class="fas fa-check"></i> Already Read'
-      : '<i class="far fa-times-circle" ></i> Not read yet'
-  }`;
-};
-
-window.addEventListener('click', switchstatue);
+// window.addEventListener('click', switchstatue);
