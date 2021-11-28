@@ -2,69 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400&family=Poppins:wght@200;300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="./images/favicon.png" />
-    <script src="https://kit.fontawesome.com/25d75193a7.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="css/modern-normalize.min.css" /> -->
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Library</title>
+    <link rel="shortcut icon" href="./images/favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1 class="title">My book library</h1>
-      <div class="info">
-        <div class="descritption">
-          <p>
-            This is a simple library app where you can add and delete books, change book status, see
-            basic information and library statistics.
-          </p>
-        </div>
-
-        <button class="big-button" id="exemple">exemple library</button>
-        <button class="big-button" id="add-book">add book</button>
+    <header class="header">
+      <div class="header-container">
+        <h1 class="title">Library</h1>
+        <nav>
+          <div class="lds-dual-ring active" id="loadingRing"></div>
+          <div class="logged-out" id="loggedOut">
+            <button class="btn btn-default btn-log-in" id="logInBtn">
+              Log in
+            </button>
+          </div>
+          <div class="logged-in" id="loggedIn">
+            <button class="btn btn-default" id="accountBtn">Account</button>
+            <button class="btn btn-default btn-log-out" id="logOutBtn">
+              Log out
+            </button>
+          </div>
+        </nav>
       </div>
     </header>
-
-    <main>
-      <div class="cardContent"></div>
+    <main class="main">
+      <button class="btn btn-green btn-large" id="addBookBtn">Add book</button>
+      <div class="books-grid" id="booksGrid"></div>
     </main>
-
-    <footer>
-      <div class="footer">
-        <a class="text-dark" href="https://www.linkedin.com/in/jonathan-bouillaux-810b831a1/">
-          © 2020 Copyright : BouillauxJonathan</a
-        >
-      </div>
+    <footer class="footer">
+      <p>Copyright © 2021 piwiit</p>
+      <a href="https://github.com/piwiit" target="_blank">
+        <i class="fab fa-github"></i
+      ></a>
     </footer>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="form-example">
-          <h2 class="title">Add book</h2>
-
-          <input type="text" name="title" id="title" placeholder="Enter the title" required />
-
-          <input type="text" name="author" id="author" placeholder="Enter author's name" required />
-
-          <input type="number" name="pages" id="pages" placeholder="Number of pages" required />
-
-          <label class="switch">
-            <input type="checkbox" id="myCheck" />
-            <span class="slider round"></span>
-          </label>
-          <button class="button" id="push-new-book">Add book</button>
+    <div class="modal" id="addBookModal">
+      <form class="add-book-form" id="addBookForm">
+        <h3 class="big-title">Add new book</h3>
+        <input
+          class="input"
+          type="text"
+          id="title"
+          placeholder="Title"
+          required
+        />
+        <p class="error-msg" id="errorMsg"></p>
+        <input
+          class="input"
+          type="text"
+          id="author"
+          placeholder="Author"
+          required
+        />
+        <input
+          class="input"
+          type="number"
+          id="pages"
+          placeholder="Pages"
+          required
+        />
+        <div class="is-read">
+          <label for="is-read">Have you read it?</label>
+          <input class="checkbox" type="checkbox" id="isRead" />
         </div>
-      </div>
+        <button class="btn btn-green btn-medium" type="submit">Submit</button>
+      </form>
     </div>
-    <script src="./script.js"></script>
+    <div class="modal" id="accountModal"></div>
+    <div class="overlay" id="overlay"></div>
   </body>
 </html>
