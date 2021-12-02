@@ -12,6 +12,11 @@ function addBookToLibrary(title, author, pages) {
   console.log(myLibrary);
 }
 
+function removeBook(i) {
+  myLibrary.splice(i, 1);
+  console.log(myLibrary);
+}
+
 function defaultLibrary() {
   addBookToLibrary('The Last Wish', 'Andrzej Sapkowski', '288', true);
   addBookToLibrary('Sword of Destiny', 'Andrzej Sapkowski', '384', true);
