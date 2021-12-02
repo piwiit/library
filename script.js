@@ -11,3 +11,8 @@ function addBookToLibrary(title, author, pages) {
   myLibrary.push(newBook);
   console.log(myLibrary);
 }
+
+function removeBook(i) {
+  myLibrary.splice(i, 1);
+  console.log(myLibrary);
+}
