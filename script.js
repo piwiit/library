@@ -9,7 +9,6 @@ function book(title, author, pages) {
 function addBookToLibrary(title, author, pages) {
   const newBook = new book(title, author, pages);
   myLibrary.push(newBook);
-  console.log(myLibrary);
 }
 
 function removeBook(i) {
