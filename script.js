@@ -1,22 +1,49 @@
 let myLibrary = [];
 
-function book(title, author, pages) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
+const addBookForm = document.getElementById('addBookForm');
+const overlay = document.getElementById('overlay');
+const addBookBtn = document.getElementById('addBookBtn');
+const addBookModal = document.getElementById('addBookModal');
+
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 }
 
-function addBookToLibrary(title, author, pages) {
-  const newBook = new book(title, author, pages);
+const openAddBookModal = () => {
+  addBookForm.reset();
+  addBookModal.classList.add('active');
+  overlay.classList.add('active');
+};
+
+const closeModal = () => {
+  addBookModal.classList.remove('active');
+  overlay.classList.remove('active');
+};
+
+const addBookToLibrary = (title, author, pages, isRead) => {
+  const newBook = new Book(title, author, pages, isRead);
   myLibrary.push(newBook);
-}
+};
 
-function removeBook(i) {
+const getBookToForm = () => {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  const isRead = document.getElementById('isRead').checked;
+  return addBookToLibrary(title, author, pages, isRead);
+};
+
+const removeBook = (i) => {
   myLibrary.splice(i, 1);
   console.log(myLibrary);
-}
+};
 
-function defaultLibrary() {
+const defaultLibrary = () => {
   addBookToLibrary('The Last Wish', 'Andrzej Sapkowski', '288', true);
   addBookToLibrary('Sword of Destiny', 'Andrzej Sapkowski', '384', true);
   addBookToLibrary('Blood of Elves', 'Andrzej Sapkowski', '320', true);
@@ -28,6 +55,11 @@ function defaultLibrary() {
   addBookToLibrary('The Alchemist', 'Paulo Coelho', '182', false);
   addBookToLibrary('On the Road', 'Jack Kerouac', '307', false);
   addBookToLibrary('1984', 'George Orwell', '328', true);
-}
+};
 
-defaultLibrary();
+addBookBtn.onclick = openAddBookModal;
+overlay.onclick = closeModal;
+addBookForm.onsubmit = getBookToForm;
+
+window.addEventListener('load', defaultLibrary);
+console.log(myLibrary);
