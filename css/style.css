@@ -38,7 +38,7 @@ html {
 body {
   background-color: var(--body);
   color: var(--font);
-  font-family: "Oswald", sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 30px;
   line-height: 1.6;
   word-wrap: break-word;
@@ -62,8 +62,8 @@ input {
   outline: none;
 }
 
-input[type="text"],
-input[type="number"] {
+input[type='text'],
+input[type='number'] {
   cursor: text;
 }
 
@@ -86,22 +86,11 @@ input[type="number"] {
 .title {
   display: flex;
   color: var(--title-font);
-  font-family: "Bebas Neue", cursive;
+  font-family: 'Bebas Neue', cursive;
   font-size: 100px;
   line-height: 1;
   letter-spacing: 10px;
   text-align: center;
-}
-
-.logged-in,
-.logged-out {
-  display: none;
-  gap: 20px;
-}
-
-.logged-in.active,
-.logged-out.active {
-  display: flex;
 }
 
 /* MAIN */
@@ -316,39 +305,6 @@ input[type="number"] {
 
 .btn-light-red:active {
   background-color: var(--btn-light-red-active);
-}
-
-/* LOADING RING */
-
-.lds-dual-ring {
-  display: none;
-  width: 80px;
-  height: 80px;
-}
-
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-
-.lds-dual-ring.active {
-  display: block;
-}
-
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /* MEDIA QUERIES */

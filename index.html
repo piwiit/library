@@ -11,30 +11,13 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="./images/favicon.png" />
-    <script
-      src="https://kit.fontawesome.com/4c536a6bd5.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <header class="header">
       <div class="header-container">
         <h1 class="title">Library</h1>
-        <nav>
-          <div class="lds-dual-ring active" id="loadingRing"></div>
-          <div class="logged-out" id="loggedOut">
-            <button class="btn btn-default btn-log-in" id="logInBtn">
-              Log in
-            </button>
-          </div>
-          <div class="logged-in" id="loggedIn">
-            <button class="btn btn-default" id="accountBtn">Account</button>
-            <button class="btn btn-default btn-log-out" id="logOutBtn">
-              Log out
-            </button>
-          </div>
-        </nav>
       </div>
     </header>
     <main class="main">
@@ -43,35 +26,15 @@
     </main>
     <footer class="footer">
       <p>Copyright © 2021 piwiit</p>
-      <a href="https://github.com/piwiit" target="_blank">
-        <i class="fab fa-github"></i
-      ></a>
+      <a href="https://github.com/piwiit" target="_blank"> <i class="fab fa-github"></i></a>
     </footer>
     <div class="modal" id="addBookModal">
       <form class="add-book-form" id="addBookForm">
         <h3 class="big-title">Add new book</h3>
-        <input
-          class="input"
-          type="text"
-          id="title"
-          placeholder="Title"
-          required
-        />
+        <input class="input" type="text" id="title" placeholder="Title" required />
         <p class="error-msg" id="errorMsg"></p>
-        <input
-          class="input"
-          type="text"
-          id="author"
-          placeholder="Author"
-          required
-        />
-        <input
-          class="input"
-          type="number"
-          id="pages"
-          placeholder="Pages"
-          required
-        />
+        <input class="input" type="text" id="author" placeholder="Author" required />
+        <input class="input" type="number" id="pages" placeholder="Pages" required />
         <div class="is-read">
           <label for="is-read">Have you read it?</label>
           <input class="checkbox" type="checkbox" id="isRead" />
