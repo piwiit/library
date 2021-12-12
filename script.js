@@ -57,6 +57,7 @@ const createBookCard = (book) => {
   removeBtn.classList.add('btn-red');
   readBtn.classList.add('btn');
   removeBtn.onclick = removeBook;
+  readBtn.onclick = toggleBook;
 
   title.textContent = `"${book.title}"`;
   author.textContent = book.author;
@@ -76,6 +77,11 @@ const createBookCard = (book) => {
     myLibrary.findIndex((element) => element.title === book.title)
   );
 
+  readBtn.setAttribute(
+    'data-index',
+    myLibrary.findIndex((element) => element.title === book.title)
+  );
+
   bookGrid.appendChild(bookCard);
   bookCard.appendChild(title);
   bookCard.appendChild(author);
@@ -88,7 +94,12 @@ const removeBook = (e) => {
   const indexNumber = e.target.dataset.index;
   myLibrary.splice(indexNumber, 1);
   updateLibrary();
-  console.log(myLibrary);
+};
+
+const toggleBook = (e) => {
+  const indexNumber = e.target.dataset.index;
+  myLibrary[indexNumber].isRead = !myLibrary[indexNumber].isRead;
+  updateLibrary();
 };
 
 const updateLibrary = () => {
