@@ -49,26 +49,60 @@ const createBookCard = (book) => {
   const title = document.createElement('h3');
   const author = document.createElement('h3');
   const pages = document.createElement('h3');
+  const removeBtn = document.createElement('button');
+  const readBtn = document.createElement('button');
 
   bookCard.classList.add('book-card');
+  removeBtn.classList.add('btn');
+  removeBtn.classList.add('btn-red');
+  readBtn.classList.add('btn');
+  removeBtn.onclick = removeBook;
 
   title.textContent = `"${book.title}"`;
   author.textContent = book.author;
   pages.textContent = `${book.pages} pages`;
+  removeBtn.textContent = 'Remove';
+
+  if (book.isRead) {
+    readBtn.textContent = 'Read';
+    readBtn.classList.add('btn-light-green');
+  } else {
+    readBtn.textContent = 'Not read';
+    readBtn.classList.add('btn-light-red');
+  }
+
+  removeBtn.setAttribute(
+    'data-index',
+    myLibrary.findIndex((element) => element.title === book.title)
+  );
 
   bookGrid.appendChild(bookCard);
   bookCard.appendChild(title);
   bookCard.appendChild(author);
   bookCard.appendChild(pages);
+  bookCard.appendChild(removeBtn);
+  bookCard.appendChild(readBtn);
 };
 
-const removeBook = (i) => {
-  myLibrary.splice(i, 1);
+const removeBook = (e) => {
+  const indexNumber = e.target.dataset.index;
+  myLibrary.splice(indexNumber, 1);
+  updateLibrary();
   console.log(myLibrary);
 };
 
+const updateLibrary = () => {
+  resetLibrary();
+  for (let book of myLibrary) {
+    createBookCard(book);
+  }
+};
+
+const resetLibrary = () => [(bookGrid.innerHTML = '')];
+
 addBookBtn.onclick = openAddBookModal;
 overlay.onclick = closeModal;
+
 addBookForm.onsubmit = addBookToLibrary;
 
 console.log(myLibrary);
