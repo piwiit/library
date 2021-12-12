@@ -177,18 +177,6 @@ input[type='number'] {
   font-size: 40px;
 }
 
-.error-msg {
-  display: none;
-  color: red;
-  width: 90%;
-  margin-top: -20px;
-  font-size: 24px;
-}
-
-.error-msg.active {
-  display: block;
-}
-
 .input {
   width: 90%;
   padding: 10px;
